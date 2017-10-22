@@ -37,7 +37,7 @@ export default class App extends React.Component{
         });
     }
 
-    editTask = (id) => {
+    activateTaskEdit = (id) => {
         this.setState({
             notes: this.state.notes.map(note => {
                 if(note.id === id){
@@ -48,7 +48,7 @@ export default class App extends React.Component{
         });
     }
 
-    activateTaskEdit = (id, task) => {
+    editTask = (id, task) => {        
         this.setState({
             notes: this.state.notes.map(note => {
                 if(note.id === id){
