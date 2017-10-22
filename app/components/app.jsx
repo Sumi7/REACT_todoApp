@@ -1,20 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import uuid from 'uuid';
 
 import Notes from './notes';
 
-const notes = [
-  {
-      id: uuid.v4(),
-    task: 'Learn React'
-  },
-  {
-      id: uuid.v4(),
-    task: 'Do laundry'
-  }
-];
 
-export default class App extends Component{
+export default class App extends React.Component{
     constructor(props){
         super();
         this.state = {
@@ -40,8 +30,8 @@ export default class App extends Component{
         })
     }
 
-    deleteTask = (id) => {
-        console.log('del')
+    deleteTask = (id, e) => {
+        e.stopPropagation();
         this.setState({
             notes: this.state.notes.filter(note => note.id !== id)
         });
@@ -71,8 +61,8 @@ export default class App extends Component{
     }
 
     render(){
-
-        return <div>
+        return(
+            <div>
                 <button onClick = {this.addNote}>+</button>
                 <Notes
                     notes = {this.state.notes}
@@ -81,5 +71,6 @@ export default class App extends Component{
                     onTaskClick = {this.activateTaskEdit}
                 />
             </div>
+        )
     }
 }

@@ -2,15 +2,15 @@ import React from 'react';
 
 export default ({editing, value, onEdit, ...props}) => {
     if(editing){
-        return <Edit value = {value} onEdit = {onEdit} {...props} />;
+        return <Edit value = {value} onEdit = {onEdit} {...props} />
     }
-    return <span {...props}>{value}</span>;
+    return <span {...props}>{value}</span>
 }
 
 class Edit extends React.Component{
     render(){
         const {value, onEdit, ...props} = this.props;
-        return<input
+        return <input
                 type="text"
                 autoFocus={true}
                 defaultValue={value}
